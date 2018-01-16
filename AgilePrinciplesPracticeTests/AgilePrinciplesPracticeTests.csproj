@@ -47,10 +47,17 @@
   <ItemGroup>
     <Compile Include="Ch4\Ch4SampleTest.cs" />
     <Compile Include="Ch4\WumpusGame.cs" />
+    <Compile Include="Ch5\GeneratePrimesTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AgilePrinciplesPractice\AgilePrinciplesPractice.csproj">
+      <Project>{3D54AC9E-C5D8-4100-B104-64B9EC3D70BA}</Project>
+      <Name>AgilePrinciplesPractice</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
