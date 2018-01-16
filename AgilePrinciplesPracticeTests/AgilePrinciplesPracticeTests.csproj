@@ -48,6 +48,9 @@
     <Compile Include="Ch4\Ch4SampleTest.cs" />
     <Compile Include="Ch4\WumpusGame.cs" />
     <Compile Include="Ch5\GeneratePrimesTest.cs" />
+    <Compile Include="Ch6\FrameTest.cs" />
+    <Compile Include="Ch6\GameTest.cs" />
+    <Compile Include="Ch6\ThrowTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
