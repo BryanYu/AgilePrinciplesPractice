@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -28,7 +29,7 @@ namespace AgilePrinciplesPractice.Ch5
             }
             else
             {
-                InitializeSieve(maxValue);
+                InitialieArrayOfIntegers(maxValue);
                 Sieve();
                 LoadPrimes();
                 return primes;
@@ -77,19 +78,15 @@ namespace AgilePrinciplesPractice.Ch5
             }
         }
 
-        private static void InitializeSieve(int maxValue)
+        private static void InitialieArrayOfIntegers(int maxValue)
         {
-            s = maxValue + 1;
-            f = new bool[s];
-            int i;
+            f = new bool[maxValue + 1];
+            f[0] = f[1] = false;
             //陣列元素初始為true
-            for (i = 0; i < s; i++)
+            for (int i = 2; i < f.Length; i++)
             {
                 f[i] = true;
             }
-
-            // 去掉已知的非質數
-            f[0] = f[1] = false;
         }
     }
 }
