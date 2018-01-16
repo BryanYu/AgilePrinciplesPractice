@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.ExceptionServices;
 using System.Text;
 using System.Threading.Tasks;
 using AgilePrinciplesPractice.Ch5;
@@ -29,6 +30,30 @@ namespace AgilePrinciplesPracticeTests.Ch5
             int[] centArray = PrimeGenerator.GeneratePrimeNumbers(100);
             Assert.AreEqual(centArray.Length, 25);
             Assert.AreEqual(centArray[24], 97);
+        }
+
+        public void TestExhaustive()
+        {
+            for (int i = 2; i < 500; i++)
+            {
+                VerifyPrimeList(PrimeGenerator.GeneratePrimeNumbers(i));
+            }
+        }
+
+        private void VerifyPrimeList(int[] list)
+        {
+            for (int i = 0; i < list.Length; i++)
+            {
+                VerifyPrime(list[i]);
+            }
+        }
+
+        private void VerifyPrime(int n)
+        {
+            for (int factor = 2; factor < n; factor++)
+            {
+                Assert.IsTrue(n % factor != 0);
+            }
         }
     }
 }
