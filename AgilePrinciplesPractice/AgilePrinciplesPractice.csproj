@@ -45,7 +45,9 @@
     <Compile Include="Ch6\Frame.cs" />
     <Compile Include="Ch6\Game.cs" />
     <Compile Include="Ch7\Copier.cs" />
+    <Compile Include="Ch9\Shape.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
