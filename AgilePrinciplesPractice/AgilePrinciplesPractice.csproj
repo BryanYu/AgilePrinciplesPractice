@@ -40,6 +40,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ch20\BoilerState.cs" />
+    <Compile Include="Ch20\BoilerStatus.cs" />
+    <Compile Include="Ch20\BrewButtonStatus.cs" />
+    <Compile Include="Ch20\CoffeeMaker.cs" />
+    <Compile Include="Ch20\ContainmentVessel.cs" />
+    <Compile Include="Ch20\HotWaterSource.cs" />
+    <Compile Include="Ch20\ICoffeeMakerAPI.cs" />
+    <Compile Include="Ch20\IndicatorState.cs" />
+    <Compile Include="Ch20\M4ContainmentVessel.cs" />
+    <Compile Include="Ch20\M4HotWaterSource.cs" />
+    <Compile Include="Ch20\M4UserInterface.cs" />
+    <Compile Include="Ch20\ReliefValveState.cs" />
+    <Compile Include="Ch20\UserInterface.cs" />
+    <Compile Include="Ch20\WarmerPlateStatus.cs" />
+    <Compile Include="Ch20\WarmerState.cs" />
     <Compile Include="Ch4\Ch4Sample.cs" />
     <Compile Include="Ch5\GeneratePrimes.cs" />
     <Compile Include="Ch6\Frame.cs" />
