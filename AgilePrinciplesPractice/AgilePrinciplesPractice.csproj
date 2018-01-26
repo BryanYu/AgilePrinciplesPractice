@@ -48,6 +48,8 @@
     <Compile Include="Ch20\HotWaterSource.cs" />
     <Compile Include="Ch20\ICoffeeMakerAPI.cs" />
     <Compile Include="Ch20\IndicatorState.cs" />
+    <Compile Include="Ch20\IPollable.cs" />
+    <Compile Include="Ch20\M4CoffeeMaker.cs" />
     <Compile Include="Ch20\M4ContainmentVessel.cs" />
     <Compile Include="Ch20\M4HotWaterSource.cs" />
     <Compile Include="Ch20\M4UserInterface.cs" />
