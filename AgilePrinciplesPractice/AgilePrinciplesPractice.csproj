@@ -62,6 +62,17 @@
     <Compile Include="Ch21\DelayedTyper.cs" />
     <Compile Include="Ch21\SleepCommand.cs" />
     <Compile Include="Ch21\WakeUpCommand.cs" />
+    <Compile Include="Ch22\Strategy\Application.cs" />
+    <Compile Include="Ch22\Strategy\ApplicationRunner.cs" />
+    <Compile Include="Ch22\Strategy\BubbleSorter.cs" />
+    <Compile Include="Ch22\Strategy\FtoCStrategy.cs" />
+    <Compile Include="Ch22\Strategy\IntSortHandler.cs" />
+    <Compile Include="Ch22\Strategy\SortHandler.cs" />
+    <Compile Include="Ch22\TemplateMethod\Application.cs" />
+    <Compile Include="Ch22\TemplateMethod\BubbleSorter.cs" />
+    <Compile Include="Ch22\TemplateMethod\FtoCTemplateMethod.cs" />
+    <Compile Include="Ch22\TemplateMethod\DoubleBubbleSorter.cs" />
+    <Compile Include="Ch22\TemplateMethod\IntBubbleSorter.cs" />
     <Compile Include="Ch4\Ch4Sample.cs" />
     <Compile Include="Ch5\GeneratePrimes.cs" />
     <Compile Include="Ch6\Frame.cs" />
