@@ -57,6 +57,11 @@
     <Compile Include="Ch20\UserInterface.cs" />
     <Compile Include="Ch20\WarmerPlateStatus.cs" />
     <Compile Include="Ch20\WarmerState.cs" />
+    <Compile Include="Ch21\ActiveObjectEngine.cs" />
+    <Compile Include="Ch21\Command.cs" />
+    <Compile Include="Ch21\DelayedTyper.cs" />
+    <Compile Include="Ch21\SleepCommand.cs" />
+    <Compile Include="Ch21\WakeUpCommand.cs" />
     <Compile Include="Ch4\Ch4Sample.cs" />
     <Compile Include="Ch5\GeneratePrimes.cs" />
     <Compile Include="Ch6\Frame.cs" />
