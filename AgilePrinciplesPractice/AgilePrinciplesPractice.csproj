@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -73,6 +74,7 @@
     <Compile Include="Ch22\TemplateMethod\FtoCTemplateMethod.cs" />
     <Compile Include="Ch22\TemplateMethod\DoubleBubbleSorter.cs" />
     <Compile Include="Ch22\TemplateMethod\IntBubbleSorter.cs" />
+    <Compile Include="Ch23\QuickEntryMediator.cs" />
     <Compile Include="Ch4\Ch4Sample.cs" />
     <Compile Include="Ch5\GeneratePrimes.cs" />
     <Compile Include="Ch6\Frame.cs" />
