@@ -75,6 +75,13 @@
     <Compile Include="Ch22\TemplateMethod\DoubleBubbleSorter.cs" />
     <Compile Include="Ch22\TemplateMethod\IntBubbleSorter.cs" />
     <Compile Include="Ch23\QuickEntryMediator.cs" />
+    <Compile Include="Ch24\Locked.cs" />
+    <Compile Include="Ch24\Monostate.cs" />
+    <Compile Include="Ch24\Singleton.cs" />
+    <Compile Include="Ch24\Turnstile.cs" />
+    <Compile Include="Ch24\Unlocked.cs" />
+    <Compile Include="Ch24\User.cs" />
+    <Compile Include="Ch24\UserDatabase.cs" />
     <Compile Include="Ch4\Ch4Sample.cs" />
     <Compile Include="Ch5\GeneratePrimes.cs" />
     <Compile Include="Ch6\Frame.cs" />
@@ -83,6 +90,8 @@
     <Compile Include="Ch9\Shape.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Compile Include="Ch24\UserDatabaseSource.cs" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

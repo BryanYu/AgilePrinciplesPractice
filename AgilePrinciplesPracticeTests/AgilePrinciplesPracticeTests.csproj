@@ -46,6 +46,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ch21\TestSleepCommand.cs" />
+    <Compile Include="Ch24\TestMonostate.cs" />
+    <Compile Include="Ch24\TestSimpleSingleton.cs" />
+    <Compile Include="Ch24\TurnstileTest.cs" />
     <Compile Include="Ch4\Ch4SampleTest.cs" />
     <Compile Include="Ch4\WumpusGame.cs" />
     <Compile Include="Ch5\GeneratePrimesTest.cs" />
