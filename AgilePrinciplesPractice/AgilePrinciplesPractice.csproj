@@ -82,6 +82,8 @@
     <Compile Include="Ch24\Unlocked.cs" />
     <Compile Include="Ch24\User.cs" />
     <Compile Include="Ch24\UserDatabase.cs" />
+    <Compile Include="Ch25\DB.cs" />
+    <Compile Include="Ch25\Employee.cs" />
     <Compile Include="Ch4\Ch4Sample.cs" />
     <Compile Include="Ch5\GeneratePrimes.cs" />
     <Compile Include="Ch6\Frame.cs" />
