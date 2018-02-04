@@ -90,6 +90,7 @@
     <Compile Include="Ch27.Payroll\AddSalariedEmployee.cs" />
     <Compile Include="Ch27.Payroll\BiweeklySchedule.cs" />
     <Compile Include="Ch27.Payroll\CommissionedClassification.cs" />
+    <Compile Include="Ch27.Payroll\DeleteEmployeeTransaction.cs" />
     <Compile Include="Ch27.Payroll\Employee.cs" />
     <Compile Include="Ch27.Payroll\HoldMethod.cs" />
     <Compile Include="Ch27.Payroll\HourlyClassification.cs" />

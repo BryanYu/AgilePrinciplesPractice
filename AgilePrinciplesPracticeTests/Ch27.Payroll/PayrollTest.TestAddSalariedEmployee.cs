@@ -74,5 +74,23 @@ namespace AgilePrinciplesPracticeTests.Ch27.Payroll
             PaymentSchedule ps = e.Schedule;
             Assert.IsTrue(ps is BiweeklySchedule);
         }
+
+        [Test]
+        public void TestDeleteEmployee()
+        {
+            int empId = 4;
+            AddCommissionEmployee t = new AddCommissionEmployee(empId, "Bill", "Home", 2500, 3.2);
+            t.Execute();
+
+            Employee e = PayrollDatabase.GetEmployee(empId);
+
+            Assert.IsNotNull(e);
+
+            DeleteEmployeeTransaction dt = new DeleteEmployeeTransaction(empId);
+            dt.Execute();
+
+            e = PayrollDatabase.GetEmployee(empId);
+            Assert.IsNull(e);
+        }
     }
 }

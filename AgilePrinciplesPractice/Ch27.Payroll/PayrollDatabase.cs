@@ -15,5 +15,10 @@ namespace Payroll
         {
             return employees[empId] as Employee;
         }
+
+        public static void DeleteEmployee(int empId)
+        {
+            employees.Remove(empId);
+        }
     }
 }
