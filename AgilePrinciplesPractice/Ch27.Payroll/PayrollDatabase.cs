@@ -6,6 +6,8 @@ namespace Payroll
     {
         private static Hashtable employees = new Hashtable();
 
+        private static Hashtable members = new Hashtable();
+
         public static void AddEmployee(int id, Employee employee)
         {
             employees[id] = employee;
@@ -19,6 +21,16 @@ namespace Payroll
         public static void DeleteEmployee(int empId)
         {
             employees.Remove(empId);
+        }
+
+        public static void AddUnionMember(int memberId, Employee employee)
+        {
+            members[memberId] = employee;
+        }
+
+        public static Employee GetUnionMember(int memberId)
+        {
+            return members[memberId] as Employee;
         }
     }
 }

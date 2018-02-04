@@ -102,9 +102,11 @@
     <Compile Include="Ch27.Payroll\SalariedClassification.cs" />
     <Compile Include="Ch27.Payroll\SalesReceipt.cs" />
     <Compile Include="Ch27.Payroll\SalesReceiptTransaction.cs" />
+    <Compile Include="Ch27.Payroll\ServiceCharge.cs" />
+    <Compile Include="Ch27.Payroll\ServiceChargeTransaction.cs" />
     <Compile Include="Ch27.Payroll\TimeCard.cs" />
     <Compile Include="Ch27.Payroll\TimeCardTransaction.cs" />
-    <Compile Include="Ch27.Payroll\Transaction.cs" />
+    <Compile Include="Ch27.Payroll\UnionAffiliation.cs" />
     <Compile Include="Ch27.Payroll\WeeklySchedule.cs" />
     <Compile Include="Ch4\Ch4Sample.cs" />
     <Compile Include="Ch5\GeneratePrimes.cs" />
@@ -113,6 +115,7 @@
     <Compile Include="Ch7\Copier.cs" />
     <Compile Include="Ch9\Shape.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Transaction.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ch24\UserDatabaseSource.cs" />

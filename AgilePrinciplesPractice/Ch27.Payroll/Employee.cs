@@ -1,4 +1,6 @@
-﻿namespace Payroll
+﻿using AgilePrinciplesPractice.Ch27.Payroll;
+
+namespace Payroll
 {
     public class Employee
     {
@@ -6,6 +8,7 @@
         public PaymentMethod Method { get; set; }
         public string Name { get; set; }
         public PaymentSchedule Schedule { get; set; }
+        public UnionAffiliation Affiliation { get; set; }
 
         public Employee(int empId, string name, string address)
         {
