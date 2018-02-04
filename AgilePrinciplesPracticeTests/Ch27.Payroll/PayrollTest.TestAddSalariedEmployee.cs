@@ -102,7 +102,6 @@ namespace AgilePrinciplesPracticeTests.Ch27.Payroll
             t.Execute();
 
             TimeCardTransaction tct = new TimeCardTransaction(new DateTime(2005, 7, 31), 8.0, empId);
-
             tct.Execute();
 
             Employee e = PayrollDatabase.GetEmployee(empId);
@@ -116,6 +115,27 @@ namespace AgilePrinciplesPracticeTests.Ch27.Payroll
             TimeCard tc = hc.GetTimeCard(new DateTime(2005, 7, 31));
             Assert.IsNotNull(tc);
             Assert.AreEqual(8.0, tc.Hours);
+        }
+
+        [Test]
+        public void TestSalesReceiptTransaction()
+        {
+            int empId = 6;
+
+            AddCommissionEmployee t = new AddCommissionEmployee(6, "Bryan", "Home", 100, 1.5);
+            t.Execute();
+
+            Employee e = PayrollDatabase.GetEmployee(empId);
+            Assert.NotNull(e);
+
+            SalesReceiptTransaction st = new SalesReceiptTransaction(new DateTime(2005, 7, 31), 100, empId);
+            st.Execute();
+
+            CommissionedClassification cc = e.Classification as CommissionedClassification;
+            Assert.IsNotNull(e.Classification is CommissionedClassification);
+
+            SalesReceipt receipt = cc.GetSalesReceipt(new DateTime(2005, 7, 31));
+            Assert.AreEqual(receipt.Amount, 100);
         }
     }
 }
