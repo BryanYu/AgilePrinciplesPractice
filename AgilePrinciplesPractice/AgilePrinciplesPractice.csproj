@@ -100,6 +100,8 @@
     <Compile Include="Ch27.Payroll\PaymentSchedule.cs" />
     <Compile Include="Ch27.Payroll\PayrollDatabase.cs" />
     <Compile Include="Ch27.Payroll\SalariedClassification.cs" />
+    <Compile Include="Ch27.Payroll\TimeCard.cs" />
+    <Compile Include="Ch27.Payroll\TimeCardTransaction.cs" />
     <Compile Include="Ch27.Payroll\Transaction.cs" />
     <Compile Include="Ch27.Payroll\WeeklySchedule.cs" />
     <Compile Include="Ch4\Ch4Sample.cs" />

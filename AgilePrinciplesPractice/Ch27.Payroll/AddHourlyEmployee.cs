@@ -4,9 +4,9 @@ namespace AgilePrinciplesPractice.Ch27.Payroll
 {
     public class AddHourlyEmployee : AddEmployeeTransaction
     {
-        private readonly int _hourlyRate;
+        private readonly double _hourlyRate;
 
-        public AddHourlyEmployee(int empId, string name, string address, int hourlyRate) : base(empId, name, address)
+        public AddHourlyEmployee(int empId, string name, string address, double hourlyRate) : base(empId, name, address)
         {
             _hourlyRate = hourlyRate;
         }

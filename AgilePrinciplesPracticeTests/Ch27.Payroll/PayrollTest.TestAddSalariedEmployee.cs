@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using AgilePrinciplesPractice.Ch27.Payroll;
@@ -91,6 +92,30 @@ namespace AgilePrinciplesPracticeTests.Ch27.Payroll
 
             e = PayrollDatabase.GetEmployee(empId);
             Assert.IsNull(e);
+        }
+
+        [Test]
+        public void TestTimeCardTransaction()
+        {
+            int empId = 5;
+            AddHourlyEmployee t = new AddHourlyEmployee(empId, "Bill", "Home", 15.25);
+            t.Execute();
+
+            TimeCardTransaction tct = new TimeCardTransaction(new DateTime(2005, 7, 31), 8.0, empId);
+
+            tct.Execute();
+
+            Employee e = PayrollDatabase.GetEmployee(empId);
+            Assert.IsNotNull(e);
+
+            PaymentClassification pc = e.Classification;
+            Assert.IsTrue(pc is HourlyClassification);
+
+            HourlyClassification hc = pc as HourlyClassification;
+
+            TimeCard tc = hc.GetTimeCard(new DateTime(2005, 7, 31));
+            Assert.IsNotNull(tc);
+            Assert.AreEqual(8.0, tc.Hours);
         }
     }
 }
