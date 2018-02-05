@@ -11,9 +11,17 @@ namespace AgilePrinciplesPractice.Ch27.Payroll
 
         public double Salary { get; set; }
 
-        public HourlyClassification(double salary)
+        public double HourlyRate { get; set; }
+
+        public HourlyClassification(double salary, double hourlyRate)
         {
             this.Salary = salary;
+            this.HourlyRate = hourlyRate;
+        }
+
+        public HourlyClassification(double hourlyRate)
+        {
+            this.HourlyRate = hourlyRate;
         }
 
         public TimeCard GetTimeCard(DateTime dateTime)

@@ -10,9 +10,12 @@ namespace Payroll
         public PaymentSchedule Schedule { get; set; }
         public UnionAffiliation Affiliation { get; set; }
 
+        public string Address { get; set; }
+
         public Employee(int empId, string name, string address)
         {
             this.Name = name;
+            this.Address = address;
         }
     }
 }
