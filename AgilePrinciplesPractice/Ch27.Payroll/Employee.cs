@@ -8,7 +8,7 @@ namespace Payroll
         public PaymentMethod Method { get; set; }
         public string Name { get; set; }
         public PaymentSchedule Schedule { get; set; }
-        public UnionAffiliation Affiliation { get; set; }
+        public Affiliation Affiliation { get; set; }
 
         public string Address { get; set; }
 

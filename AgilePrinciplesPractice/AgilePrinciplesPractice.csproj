@@ -88,8 +88,10 @@
     <Compile Include="Ch27.Payroll\AddEmployeeTransaction.cs" />
     <Compile Include="Ch27.Payroll\AddHourlyEmployee.cs" />
     <Compile Include="Ch27.Payroll\AddSalariedEmployee.cs" />
+    <Compile Include="Ch27.Payroll\Affiliation.cs" />
     <Compile Include="Ch27.Payroll\BiweeklySchedule.cs" />
     <Compile Include="Ch27.Payroll\ChangeAddressTransaction.cs" />
+    <Compile Include="Ch27.Payroll\ChangeAffiliationTransaction.cs" />
     <Compile Include="Ch27.Payroll\ChangeClassificationTransaction.cs" />
     <Compile Include="Ch27.Payroll\ChangeCommissionedTransaction.cs" />
     <Compile Include="Ch27.Payroll\ChangeDirectTransaction.cs" />
@@ -98,8 +100,10 @@
     <Compile Include="Ch27.Payroll\ChangeHourlyTransaction.cs" />
     <Compile Include="Ch27.Payroll\ChangeMailTransaction.cs" />
     <Compile Include="Ch27.Payroll\ChangeMehtodTransaction.cs" />
+    <Compile Include="Ch27.Payroll\ChangeMemberTransaction.cs" />
     <Compile Include="Ch27.Payroll\ChangeNameTransaction.cs" />
     <Compile Include="Ch27.Payroll\ChangeSalariedTransaction.cs" />
+    <Compile Include="Ch27.Payroll\ChangeUnaffiliationTransaction.cs" />
     <Compile Include="Ch27.Payroll\CommissionedClassification.cs" />
     <Compile Include="Ch27.Payroll\DeleteEmployeeTransaction.cs" />
     <Compile Include="Ch27.Payroll\DirectMethod.cs" />
@@ -108,6 +112,7 @@
     <Compile Include="Ch27.Payroll\HourlyClassification.cs" />
     <Compile Include="Ch27.Payroll\MailMethod.cs" />
     <Compile Include="Ch27.Payroll\MonthlySchedule.cs" />
+    <Compile Include="Ch27.Payroll\NoAffiliation.cs" />
     <Compile Include="Ch27.Payroll\PaymentClassification.cs" />
     <Compile Include="Ch27.Payroll\PaymentMethod.cs" />
     <Compile Include="Ch27.Payroll\PaymentSchedule.cs" />

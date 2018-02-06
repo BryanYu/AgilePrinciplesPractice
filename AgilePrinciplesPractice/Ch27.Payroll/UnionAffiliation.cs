@@ -3,9 +3,25 @@ using System.Collections;
 
 namespace AgilePrinciplesPractice.Ch27.Payroll
 {
-    public class UnionAffiliation
+    public class UnionAffiliation : Affiliation
     {
         private Hashtable serviceCharges = new Hashtable();
+        private int memberId;
+        private double dues;
+
+        public int MemberId
+        {
+            get
+            {
+                return this.memberId;
+            }
+        }
+
+        public UnionAffiliation(int memberId, double dues)
+        {
+            this.memberId = memberId;
+            this.dues = dues;
+        }
 
         public ServiceCharge GetServiceCharge(DateTime dateTime)
         {

@@ -150,9 +150,9 @@ namespace AgilePrinciplesPracticeTests.Ch27.Payroll
             Employee e = PayrollDatabase.GetEmployee(empId);
             Assert.IsNotNull(e);
 
-            UnionAffiliation af = new UnionAffiliation();
-            e.Affiliation = af;
             int memberId = 86;
+            UnionAffiliation af = new UnionAffiliation(memberId, 55);
+            e.Affiliation = af;
             PayrollDatabase.AddUnionMember(memberId, e);
             ServiceChargeTransaction sct = new ServiceChargeTransaction(memberId, new DateTime(2005, 8, 8), 12.95);
             sct.Execute();
@@ -307,6 +307,51 @@ namespace AgilePrinciplesPracticeTests.Ch27.Payroll
 
             Assert.NotNull(e);
             Assert.IsTrue(e.Method is HoldMethod);
+        }
+
+        [Test]
+        public void TestChangeUnionMember()
+        {
+            int empId = 8;
+            AddHourlyEmployee t = new AddHourlyEmployee(empId, "Bill", "Home", 15.25);
+            t.Execute();
+            int memberId = 7743;
+            ChangeMemberTransaction cmt = new ChangeMemberTransaction(empId, memberId, 99.42);
+            cmt.Execute();
+            Employee e = PayrollDatabase.GetEmployee(empId);
+            Assert.IsNotNull(e);
+            Assert.IsNotNull(e.Affiliation);
+            Assert.IsTrue(e.Affiliation is UnionAffiliation);
+            UnionAffiliation uf = e.Affiliation as UnionAffiliation;
+            Employee member = PayrollDatabase.GetUnionMember(memberId);
+            Assert.IsNotNull(member);
+            Assert.AreEqual(e, member);
+        }
+
+        [Test]
+        public void TestChangeNoUnionMember()
+        {
+            int empId = 8;
+            AddHourlyEmployee t = new AddHourlyEmployee(empId, "Bill", "Home", 15.25);
+            t.Execute();
+            int memberId = 7743;
+            ChangeUnaffiliationTransaction cmt = new ChangeUnaffiliationTransaction(empId);
+            cmt.Execute();
+            Employee e = PayrollDatabase.GetEmployee(empId);
+            Assert.IsNotNull(e);
+            Assert.IsNotNull(e.Affiliation);
+            Assert.IsTrue(e.Affiliation is NoAffiliation);
+            Employee member = PayrollDatabase.GetUnionMember(memberId);
+            Assert.IsNull(member);
+        }
+
+        [Test]
+        public void TestPaySingleSalariedEmployee()
+        {
+            int empId = 1;
+            AddSalariedEmployee t = new AddSalariedEmployee(empId, "Bob", "Home", 1000.00);
+            t.Execute();
+            DateTime payDate = new DateTime(2001, 11, 30);
         }
     }
 }
