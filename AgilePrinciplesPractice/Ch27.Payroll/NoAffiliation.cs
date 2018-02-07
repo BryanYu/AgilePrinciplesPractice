@@ -1,6 +1,12 @@
-﻿namespace AgilePrinciplesPractice.Ch27.Payroll
+using System;
+
+namespace Payroll
 {
-    public class NoAffiliation : Affiliation
-    {
-    }
+	public class NoAffiliation : Affiliation
+	{
+		public double CalculateDeductions(Paycheck paycheck)
+		{
+			return 0;
+		}
+	}
 }

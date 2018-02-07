@@ -84,13 +84,12 @@
     <Compile Include="Ch24\UserDatabase.cs" />
     <Compile Include="Ch25\DB.cs" />
     <Compile Include="Ch25\Employee.cs" />
-    <Compile Include="Ch27.Payroll\AddCommissionEmployee.cs" />
+    <Compile Include="Ch27.Payroll\AddCommissionedEmployee.cs" />
     <Compile Include="Ch27.Payroll\AddEmployeeTransaction.cs" />
     <Compile Include="Ch27.Payroll\AddHourlyEmployee.cs" />
     <Compile Include="Ch27.Payroll\AddSalariedEmployee.cs" />
     <Compile Include="Ch27.Payroll\Affiliation.cs" />
     <Compile Include="Ch27.Payroll\BiweeklySchedule.cs" />
-    <Compile Include="Ch27.Payroll\ChangeAddressTransaction.cs" />
     <Compile Include="Ch27.Payroll\ChangeAffiliationTransaction.cs" />
     <Compile Include="Ch27.Payroll\ChangeClassificationTransaction.cs" />
     <Compile Include="Ch27.Payroll\ChangeCommissionedTransaction.cs" />
@@ -101,18 +100,23 @@
     <Compile Include="Ch27.Payroll\ChangeMailTransaction.cs" />
     <Compile Include="Ch27.Payroll\ChangeMehtodTransaction.cs" />
     <Compile Include="Ch27.Payroll\ChangeMemberTransaction.cs" />
+    <Compile Include="Ch27.Payroll\ChangeMethodTransaction.cs" />
     <Compile Include="Ch27.Payroll\ChangeNameTransaction.cs" />
     <Compile Include="Ch27.Payroll\ChangeSalariedTransaction.cs" />
-    <Compile Include="Ch27.Payroll\ChangeUnaffiliationTransaction.cs" />
-    <Compile Include="Ch27.Payroll\CommissionedClassification.cs" />
+    <Compile Include="Ch27.Payroll\ChangeUnaffiliatedTransaction.cs" />
+    <Compile Include="Ch27.Payroll\CommissionClassification.cs" />
+    <Compile Include="Ch27.Payroll\DateUtil.cs" />
     <Compile Include="Ch27.Payroll\DeleteEmployeeTransaction.cs" />
-    <Compile Include="Ch27.Payroll\DirectMethod.cs" />
+    <Compile Include="Ch27.Payroll\DirectDepositMethod.cs" />
     <Compile Include="Ch27.Payroll\Employee.cs" />
     <Compile Include="Ch27.Payroll\HoldMethod.cs" />
     <Compile Include="Ch27.Payroll\HourlyClassification.cs" />
+    <Compile Include="Ch27.Payroll\InMemoryPayrollDatabase.cs" />
     <Compile Include="Ch27.Payroll\MailMethod.cs" />
     <Compile Include="Ch27.Payroll\MonthlySchedule.cs" />
     <Compile Include="Ch27.Payroll\NoAffiliation.cs" />
+    <Compile Include="Ch27.Payroll\Paycheck.cs" />
+    <Compile Include="Ch27.Payroll\PaydayTransaction.cs" />
     <Compile Include="Ch27.Payroll\PaymentClassification.cs" />
     <Compile Include="Ch27.Payroll\PaymentMethod.cs" />
     <Compile Include="Ch27.Payroll\PaymentSchedule.cs" />
@@ -124,6 +128,7 @@
     <Compile Include="Ch27.Payroll\ServiceChargeTransaction.cs" />
     <Compile Include="Ch27.Payroll\TimeCard.cs" />
     <Compile Include="Ch27.Payroll\TimeCardTransaction.cs" />
+    <Compile Include="Ch27.Payroll\Transaction.cs" />
     <Compile Include="Ch27.Payroll\UnionAffiliation.cs" />
     <Compile Include="Ch27.Payroll\WeeklySchedule.cs" />
     <Compile Include="Ch4\Ch4Sample.cs" />
@@ -133,7 +138,6 @@
     <Compile Include="Ch7\Copier.cs" />
     <Compile Include="Ch9\Shape.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Transaction.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ch24\UserDatabaseSource.cs" />

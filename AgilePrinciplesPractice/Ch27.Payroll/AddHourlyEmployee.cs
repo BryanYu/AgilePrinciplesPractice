@@ -1,24 +1,27 @@
-﻿using Payroll;
+using System;
 
-namespace AgilePrinciplesPractice.Ch27.Payroll
+namespace Payroll
 {
-    public class AddHourlyEmployee : AddEmployeeTransaction
-    {
-        private readonly double _hourlyRate;
+	public class AddHourlyEmployee : AddEmployeeTransaction
+	{
+		private readonly double hourlyRate;
 
-        public AddHourlyEmployee(int empId, string name, string address, double hourlyRate) : base(empId, name, address)
-        {
-            _hourlyRate = hourlyRate;
-        }
+		public AddHourlyEmployee(int id, string name, string address, double hourlyRate, PayrollDatabase database)
+			: base(id, name, address, database)
+		{
+			this.hourlyRate = hourlyRate;
 
-        protected override PaymentClassification MakeClassification()
-        {
-            return new HourlyClassification(_hourlyRate);
-        }
+		}
 
-        protected override PaymentSchedule MakeSchedule()
-        {
-            return new WeeklySchedule();
-        }
-    }
+		protected override 
+			PaymentClassification MakeClassification()
+		{
+			return new HourlyClassification(hourlyRate);
+		}
+
+		protected override PaymentSchedule MakeSchedule()
+		{
+			return new WeeklySchedule();
+		}
+	}
 }

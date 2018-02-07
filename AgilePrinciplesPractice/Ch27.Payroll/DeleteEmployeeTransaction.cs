@@ -1,19 +1,18 @@
-﻿using Payroll;
-
-namespace AgilePrinciplesPractice.Ch27.Payroll
+namespace Payroll
 {
-    public class DeleteEmployeeTransaction : Transaction
-    {
-        private readonly int empId;
+	public class DeleteEmployeeTransaction : Transaction
+	{
+		private readonly int id;
 
-        public DeleteEmployeeTransaction(int empId)
-        {
-            this.empId = empId;
-        }
+		public DeleteEmployeeTransaction(int id, PayrollDatabase database)
+			: base (database)
+		{
+			this.id = id;
+		}
 
-        public void Execute()
-        {
-            PayrollDatabase.DeleteEmployee(this.empId);
-        }
-    }
+		public override void Execute()
+		{
+			database.DeleteEmployee(id);
+		}
+	}
 }

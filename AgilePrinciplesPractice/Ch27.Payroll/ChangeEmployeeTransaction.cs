@@ -1,30 +1,28 @@
-﻿using System;
-using Payroll;
+using System;
 
-namespace AgilePrinciplesPractice.Ch27.Payroll
+namespace Payroll
 {
-    public abstract class ChangeEmployeeTransaction : Transaction
-    {
-        private readonly int empId;
+	public abstract class ChangeEmployeeTransaction : Transaction
+	{
+		private readonly int empId;
 
-        protected ChangeEmployeeTransaction(int empId)
-        {
-            this.empId = empId;
-        }
+		public ChangeEmployeeTransaction(int empId, PayrollDatabase database)
+			: base (database)
+		{
+			this.empId = empId;
+		}
 
-        public void Execute()
-        {
-            Employee e = PayrollDatabase.GetEmployee(this.empId);
-            if (e != null)
-            {
-                this.Change(e);
-            }
-            else
-            {
-                throw new InvalidOperationException("No Such Employee");
-            }
-        }
+		public override void Execute()
+		{
+			Employee e = database.GetEmployee(empId);
+			
+			if(e != null)
+				Change(e);
+			else
+				throw new ApplicationException(
+					"No such employee.");
+		}
 
-        protected abstract void Change(Employee e);
-    }
+		protected abstract void Change(Employee e);
+	}
 }

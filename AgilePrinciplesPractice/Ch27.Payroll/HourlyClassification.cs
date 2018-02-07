@@ -1,37 +1,57 @@
-﻿using System;
+using System;
 using System.Collections;
-using System.Collections.Generic;
-using Payroll;
 
-namespace AgilePrinciplesPractice.Ch27.Payroll
+namespace Payroll
 {
-    public class HourlyClassification : PaymentClassification
-    {
-        private Hashtable _timeCard = new Hashtable();
+	public class HourlyClassification : PaymentClassification
+	{
+		private double hourlyRate;
+		private Hashtable timeCards = new Hashtable();
 
-        public double Salary { get; set; }
+		public HourlyClassification(double rate)
+		{
+			this.hourlyRate = rate;
+		}
 
-        public double HourlyRate { get; set; }
+		public double HourlyRate
+		{
+			get { return hourlyRate; }
+		}
 
-        public HourlyClassification(double salary, double hourlyRate)
-        {
-            this.Salary = salary;
-            this.HourlyRate = hourlyRate;
-        }
+		public TimeCard GetTimeCard(DateTime date)
+		{
+			return timeCards[date] as TimeCard;
+		}
 
-        public HourlyClassification(double hourlyRate)
-        {
-            this.HourlyRate = hourlyRate;
-        }
+		public void AddTimeCard(TimeCard card)
+		{
+			timeCards[card.Date] = card;
+		}
 
-        public TimeCard GetTimeCard(DateTime dateTime)
-        {
-            return this._timeCard[dateTime] as TimeCard;
-        }
+		public override double CalculatePay(Paycheck paycheck)
+		{
+			double totalPay = 0.0;
+			foreach(TimeCard timeCard in timeCards.Values)
+			{
+				if(DateUtil.IsInPayPeriod(timeCard.Date, 
+					paycheck.PayPeriodStartDate, 
+					paycheck.PayPeriodEndDate))
+					totalPay += CalculatePayForTimeCard(timeCard);
+			}
+			return totalPay;
+		}
 
-        public void AddTimeCard(TimeCard timeCard)
-        {
-            this._timeCard[timeCard.Date] = timeCard;
-        }
-    }
+		private double CalculatePayForTimeCard(TimeCard card)
+		{
+			double overtimeHours = Math.Max(0.0, card.Hours - 8);
+			double normalHours = card.Hours - overtimeHours;
+			return hourlyRate * normalHours + 
+				hourlyRate * 1.5 * overtimeHours;
+		}
+
+		public override string ToString()
+		{
+			return String.Format("${0}/hr", hourlyRate);
+		}
+	}
 }

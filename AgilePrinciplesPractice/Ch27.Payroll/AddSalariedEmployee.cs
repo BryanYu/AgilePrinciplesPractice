@@ -1,22 +1,24 @@
-﻿namespace Payroll
+namespace Payroll
 {
-    public class AddSalariedEmployee : AddEmployeeTransaction
-    {
-        private readonly double _salary;
+	public class AddSalariedEmployee : AddEmployeeTransaction
+	{
+		private readonly double salary;
 
-        public AddSalariedEmployee(int empId, string name, string address, double salary) : base(empId, name, address)
-        {
-            _salary = salary;
-        }
+		public AddSalariedEmployee(int id, string name, string address, double salary, PayrollDatabase database) 
+			: base(id, name, address, database)
+		{
+			this.salary = salary;
+		}
 
-        protected override PaymentClassification MakeClassification()
-        {
-            return new SalariedClassification(_salary);
-        }
+		protected override 
+			PaymentClassification MakeClassification()
+		{
+			return new SalariedClassification(salary);
+		}
 
-        protected override PaymentSchedule MakeSchedule()
-        {
-            return new MonthlySchedule();
-        }
-    }
+		protected override PaymentSchedule MakeSchedule()
+		{
+			return new MonthlySchedule();
+		}
+	}
 }

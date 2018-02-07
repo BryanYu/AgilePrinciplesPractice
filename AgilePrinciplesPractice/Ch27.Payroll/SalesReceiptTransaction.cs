@@ -1,39 +1,41 @@
-﻿using System;
-using Payroll;
+using System;
 
-namespace AgilePrinciplesPractice.Ch27.Payroll
+namespace Payroll
 {
-    public class SalesReceiptTransaction : Transaction
-    {
-        private readonly DateTime _dateTime;
-        private readonly int _amount;
-        private readonly int _empId;
+	public class SalesReceiptTransaction : Transaction
+	{
+		private readonly DateTime date;
+		private readonly double saleAmount;
+		private readonly int empId;
 
-        public SalesReceiptTransaction(DateTime dateTime, int amount, int empId)
-        {
-            _dateTime = dateTime;
-            _amount = amount;
-            _empId = empId;
-        }
+		public SalesReceiptTransaction(DateTime time, double saleAmount, int empId, PayrollDatabase database)
+			: base(database)
+		{
+			this.date = time;
+			this.saleAmount = saleAmount;
+			this.empId = empId;
+		}
 
-        public void Execute()
-        {
-            Employee e = PayrollDatabase.GetEmployee(this._empId);
-            if (e != null)
-            {
-                if (e.Classification is CommissionedClassification hc)
-                {
-                    hc.AddSalesRecepit(new SalesReceipt(this._dateTime, this._amount));
-                }
-                else
-                {
-                    throw new InvalidOperationException("no commission employee");
-                }
-            }
-            else
-            {
-                throw new InvalidOperationException("no such employee");
-            }
-        }
-    }
+		public override void Execute()
+		{
+			Employee e = database.GetEmployee(empId);
+
+			if (e != null)
+			{
+				CommissionClassification hc =
+					e.Classification as CommissionClassification;
+
+				if (hc != null)
+					hc.AddSalesReceipt(new SalesReceipt(date, saleAmount));
+				else
+					throw new ApplicationException(
+						"Tried to add sales receipt to" +
+							"non-commissioned employee");
+			}
+			else
+				throw new ApplicationException(
+					"No such employee.");
+
+		}
+	}
 }

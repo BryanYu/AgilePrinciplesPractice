@@ -1,20 +1,26 @@
-﻿using System;
+using System;
 
-namespace AgilePrinciplesPractice.Ch27.Payroll
+namespace Payroll
 {
-    public class TimeCard
-    {
-        private readonly DateTime _dateTime;
-        private readonly double _hours;
+	public class TimeCard
+	{
+		private readonly DateTime date;
+		private readonly double hours;
 
-        public DateTime Date => this._dateTime;
+		public TimeCard(DateTime date, double hours)
+		{
+			this.date = date;
+			this.hours = hours;
+		}
 
-        public double Hours => this._hours;
+		public double Hours
+		{
+			get { return hours; }
+		}
 
-        public TimeCard(DateTime dateTime, double hours)
-        {
-            _dateTime = dateTime;
-            _hours = hours;
-        }
-    }
+		public DateTime Date
+		{
+			get { return date; }
+		}
+	}
 }

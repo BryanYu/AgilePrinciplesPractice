@@ -1,6 +1,7 @@
-﻿namespace AgilePrinciplesPractice.Ch27.Payroll
+namespace Payroll
 {
-    public class Affiliation
-    {
-    }
+	public interface Affiliation
+	{
+		double CalculateDeductions(Paycheck paycheck);
+	}
 }

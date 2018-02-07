@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System;
 
 namespace Payroll
 {
-    public class PaymentSchedule
-    {
-    }
+	public interface PaymentSchedule
+	{
+		bool IsPayDate(DateTime payDate);
+		DateTime GetPayPeriodStartDate(DateTime date);
+	}
 }

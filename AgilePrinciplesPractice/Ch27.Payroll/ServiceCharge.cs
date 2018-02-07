@@ -1,19 +1,27 @@
-﻿using System;
+using System;
 
-namespace AgilePrinciplesPractice.Ch27.Payroll
+namespace Payroll
 {
-    public class ServiceCharge
-    {
-        private readonly DateTime _dateTime;
-        private readonly double _amount;
+	public class ServiceCharge
+	{
+		private readonly DateTime time;
+		private readonly double amount;
 
-        public DateTime DateTime => this._dateTime;
-        public double Amount => this._amount;
+		public ServiceCharge(DateTime time, double amount)
+		{
+			this.time = time;
+			this.amount = amount;
+		}
 
-        public ServiceCharge(DateTime dateTime, double amount)
-        {
-            _dateTime = dateTime;
-            _amount = amount;
-        }
-    }
+		public double Amount
+		{
+			get { return amount; }
+		}
+
+		public DateTime Time
+		{
+			get { return time; }
+		}
+
+	}
 }

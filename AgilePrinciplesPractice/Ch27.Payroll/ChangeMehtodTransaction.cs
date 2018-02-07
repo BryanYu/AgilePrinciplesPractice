@@ -2,17 +2,18 @@
 
 namespace AgilePrinciplesPractice.Ch27.Payroll
 {
-    public abstract class ChangeMehtodTransaction : ChangeEmployeeTransaction
+    public abstract class ChangeMethodTransaction : ChangeEmployeeTransaction
     {
         protected abstract PaymentMethod Method { get; }
 
-        public ChangeMehtodTransaction(int empId) : base(empId)
-        {
-        }
+        public ChangeMethodTransaction(int empId, PayrollDatabase database)
+                    : base(empId, database)
+        { }
 
         protected override void Change(Employee e)
         {
-            e.Method = this.Method;
+            PaymentMethod method = Method;
+            e.Method = method;
         }
     }
 }

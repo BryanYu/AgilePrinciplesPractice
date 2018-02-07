@@ -1,30 +1,24 @@
-﻿using Payroll;
-
-namespace AgilePrinciplesPractice.Ch27.Payroll
+namespace Payroll
 {
-    public class ChangeHourlyTransaction : ChangeClassificationTransaction
-    {
-        private readonly double hourlyRate;
+	public class ChangeHourlyTransaction 
+		: ChangeClassificationTransaction
+	{
+		private readonly double hourlyRate;
 
-        protected override PaymentClassification Classification
-        {
-            get
-            {
-                return new HourlyClassification(this.hourlyRate);
-            }
-        }
+		public ChangeHourlyTransaction(int id, double hourlyRate, PayrollDatabase database)
+			: base(id, database)
+		{
+			this.hourlyRate = hourlyRate;
+		}
 
-        protected override PaymentSchedule Schedule
-        {
-            get
-            {
-                return new WeeklySchedule();
-            }
-        }
+		protected override PaymentClassification Classification
+		{
+			get { return new HourlyClassification(hourlyRate); }
+		}
 
-        public ChangeHourlyTransaction(int empId, double hourlyRate) : base(empId)
-        {
-            this.hourlyRate = hourlyRate;
-        }
-    }
+		protected override PaymentSchedule Schedule
+		{
+			get { return new WeeklySchedule(); }
+		}
+	}
 }

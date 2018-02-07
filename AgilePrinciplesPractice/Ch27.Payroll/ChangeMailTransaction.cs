@@ -1,19 +1,16 @@
-﻿using Payroll;
-
-namespace AgilePrinciplesPractice.Ch27.Payroll
+namespace Payroll
 {
-    public class ChangeMailTransaction : ChangeMehtodTransaction
-    {
-        protected override PaymentMethod Method
-        {
-            get
-            {
-                return new MailMethod();
-            }
-        }
+	public class ChangeMailTransaction : ChangeMethodTransaction
+	{
+		public ChangeMailTransaction(int empId, PayrollDatabase database)
+			: base(empId, database)
+		{
+		}
 
-        public ChangeMailTransaction(int empId) : base(empId)
-        {
-        }
-    }
+		protected override PaymentMethod Method
+		{
+			get { return new MailMethod("3.14 Pi St"); }
+		}
+
+	}
 }

@@ -1,21 +1,96 @@
-﻿using AgilePrinciplesPractice.Ch27.Payroll;
+using System;
+using System.Text;
 
 namespace Payroll
 {
     public class Employee
     {
-        public PaymentClassification Classification { get; set; }
-        public PaymentMethod Method { get; set; }
-        public string Name { get; set; }
-        public PaymentSchedule Schedule { get; set; }
-        public Affiliation Affiliation { get; set; }
+        private readonly int empid;
+        private readonly string address;
+        private string name;
+        private PaymentClassification classification;
+        private PaymentSchedule schedule;
+        private PaymentMethod method;
+        private Affiliation affiliation = new NoAffiliation();
 
-        public string Address { get; set; }
-
-        public Employee(int empId, string name, string address)
+        public string Name
         {
-            this.Name = name;
-            this.Address = address;
+            get { return name; }
+            set { name = value; }
+        }
+
+        public string Address
+        {
+            get { return address; }
+        }
+
+        public PaymentClassification Classification
+        {
+            get { return classification; }
+            set { classification = value; }
+        }
+
+        public PaymentSchedule Schedule
+        {
+            get { return schedule; }
+            set { schedule = value; }
+        }
+
+        public PaymentMethod Method
+        {
+            get { return method; }
+            set { method = value; }
+        }
+
+        public Affiliation Affiliation
+        {
+            get { return affiliation; }
+            set { affiliation = value; }
+        }
+
+        public int EmpId
+        {
+            get { return empid; }
+        }
+
+        public Employee(int empid, string name, string address)
+        {
+            this.empid = empid;
+            this.name = name;
+            this.address = address;
+        }
+
+        public bool IsPayDate(DateTime date)
+        {
+            return schedule.IsPayDate(date);
+        }
+
+        public void Payday(Paycheck paycheck)
+        {
+            double grossPay = classification.CalculatePay(paycheck);
+            double deductions = affiliation.CalculateDeductions(paycheck);
+            double netPay = grossPay - deductions;
+            paycheck.GrossPay = grossPay;
+            paycheck.Deductions = deductions;
+            paycheck.NetPay = netPay;
+            method.Pay(paycheck);
+        }
+
+        public DateTime GetPayPeriodStartDate(DateTime date)
+        {
+            return schedule.GetPayPeriodStartDate(date);
+        }
+
+        public override string ToString()
+        {
+            StringBuilder builder = new StringBuilder();
+            builder.Append("Emp#: ").Append(empid).Append("   ");
+            builder.Append(name).Append("   ");
+            builder.Append(address).Append("   ");
+            builder.Append("Paid ").Append(classification).Append(" ");
+            builder.Append(schedule);
+            builder.Append(" by ").Append(method);
+            return builder.ToString();
         }
     }
 }

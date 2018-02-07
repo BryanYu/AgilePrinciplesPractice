@@ -1,21 +1,20 @@
-﻿using Payroll;
-
-namespace AgilePrinciplesPractice.Ch27.Payroll
+namespace Payroll
 {
-    public abstract class ChangeClassificationTransaction : ChangeEmployeeTransaction
-    {
-        protected abstract PaymentClassification Classification { get; }
+	public abstract class ChangeClassificationTransaction
+		: ChangeEmployeeTransaction
+	{
+		public ChangeClassificationTransaction(int id, PayrollDatabase database)
+			: base (id, database)
+		{}
 
-        protected abstract PaymentSchedule Schedule { get; }
+		protected override void Change(Employee e)
+		{
+			e.Classification = Classification;
+			e.Schedule = Schedule;
+		}
 
-        protected ChangeClassificationTransaction(int empId) : base(empId)
-        {
-        }
-
-        protected override void Change(Employee e)
-        {
-            e.Classification = this.Classification;
-            e.Schedule = this.Schedule;
-        }
-    }
+		protected abstract 
+			PaymentClassification Classification { get; }
+		protected abstract PaymentSchedule Schedule { get; }
+	}
 }

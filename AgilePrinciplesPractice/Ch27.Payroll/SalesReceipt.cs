@@ -1,20 +1,26 @@
-﻿using System;
+using System;
 
-namespace AgilePrinciplesPractice.Ch27.Payroll
+namespace Payroll
 {
-    public class SalesReceipt
-    {
-        private readonly DateTime _dateTime;
-        private readonly double _amount;
+	public class SalesReceipt
+	{
+		private readonly DateTime date;
+		private readonly double saleAmount;
 
-        public DateTime DateTime => this._dateTime;
+		public SalesReceipt(DateTime date, double amount)
+		{
+			this.date = date;
+			this.saleAmount = amount;
+		}
 
-        public double Amount => this._amount;
+		public DateTime Date
+		{
+			get { return date; }
+		}
 
-        public SalesReceipt(DateTime dateTime, double amount)
-        {
-            _dateTime = dateTime;
-            _amount = amount;
-        }
-    }
+		public double SaleAmount
+		{
+			get { return saleAmount; }
+		}
+	}
 }

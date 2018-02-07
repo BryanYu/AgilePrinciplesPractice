@@ -1,23 +1,19 @@
-﻿using Payroll;
-
-namespace AgilePrinciplesPractice.Ch27.Payroll
+namespace Payroll
 {
-    public abstract class ChangeAffiliationTransaction : ChangeEmployeeTransaction
-    {
-        protected abstract Affiliation Affiliation { get; }
+	public abstract class ChangeAffiliationTransaction : ChangeEmployeeTransaction
+	{
+		public ChangeAffiliationTransaction(int empId, PayrollDatabase database)
+			: base(empId, database)
+		{}
 
-        public ChangeAffiliationTransaction(int empId)
-            : base(empId)
-        {
-        }
+		protected override void Change(Employee e)
+		{
+			RecordMembership(e);
+			Affiliation affiliation = Affiliation;
+			e.Affiliation = affiliation;
+		}
 
-        protected override void Change(Employee e)
-        {
-            this.RecordMembership(e);
-            Affiliation affiliation = this.Affiliation;
-            e.Affiliation = affiliation;
-        }
-
-        protected abstract void RecordMembership(Employee e);
-    }
+		protected abstract Affiliation Affiliation { get; }
+		protected abstract void RecordMembership(Employee e);
+	}
 }

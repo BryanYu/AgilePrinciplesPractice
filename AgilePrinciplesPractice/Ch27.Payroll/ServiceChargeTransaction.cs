@@ -1,46 +1,42 @@
-﻿using System;
-using Payroll;
+using System;
 
-namespace AgilePrinciplesPractice.Ch27.Payroll
+namespace Payroll
 {
-    public class ServiceChargeTransaction : Transaction
-    {
-        private readonly int _memberId;
-        private readonly DateTime _dateTime;
-        private readonly double _charge;
+	public class ServiceChargeTransaction : Transaction
+	{
+		private readonly int memberId;
+		private readonly DateTime time;
+		private readonly double charge;
 
-        public ServiceChargeTransaction(int memberId, DateTime dateTime, double charge)
-        {
-            _memberId = memberId;
-            _dateTime = dateTime;
-            _charge = charge;
-        }
+		public ServiceChargeTransaction(int id, DateTime time, double charge, PayrollDatabase database)
+			: base(database)
+		{
+			this.memberId = id;
+			this.time = time;
+			this.charge = charge;
+		}
 
-        public void Execute()
-        {
-            Employee e = PayrollDatabase.GetUnionMember(this._memberId);
-            if (e != null)
-            {
-                UnionAffiliation ua = null;
-                if (e.Affiliation is UnionAffiliation)
-                {
-                    ua = e.Affiliation as UnionAffiliation;
-                }
+		public override void Execute()
+		{
+			Employee e = database.GetUnionMember(memberId);
 
-                if (ua != null)
-                {
-                    ua.AddServiceCharge(new ServiceCharge(this._dateTime, this._charge));
-                }
-                else
-                {
-                    throw new InvalidOperationException(
-                        "Tires to add service charge to union member without a union affiliation");
-                }
-            }
-            else
-            {
-                throw new InvalidOperationException("no such union member");
-            }
-        }
-    }
+			if (e != null)
+			{
+				UnionAffiliation ua = null;
+				if(e.Affiliation is UnionAffiliation)
+					ua = e.Affiliation as UnionAffiliation;
+
+				if (ua != null)
+					ua.AddServiceCharge(
+						new ServiceCharge(time, charge));
+				else
+					throw new ApplicationException(
+						"Tries to add service charge to union"
+						+ "member without a union affiliation");
+			}
+			else
+				throw new ApplicationException(
+					"No such union member.");
+		}
+	}
 }

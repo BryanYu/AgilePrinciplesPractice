@@ -1,19 +1,16 @@
-﻿using Payroll;
-
-namespace AgilePrinciplesPractice.Ch27.Payroll
+namespace Payroll
 {
-    public class ChangeHoldTransaction : ChangeMehtodTransaction
-    {
-        protected override PaymentMethod Method
-        {
-            get
-            {
-                return new HoldMethod();
-            }
-        }
+	public class ChangeHoldTransaction : ChangeMethodTransaction
+	{
+		public ChangeHoldTransaction(int empId, PayrollDatabase database)
+			: base(empId, database)
+		{
+		}
 
-        public ChangeHoldTransaction(int empId) : base(empId)
-        {
-        }
-    }
+		protected override PaymentMethod Method
+		{
+			get { return new HoldMethod(); }
+		}
+
+	}
 }

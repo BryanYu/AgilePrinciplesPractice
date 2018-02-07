@@ -1,19 +1,16 @@
-﻿using Payroll;
-
-namespace AgilePrinciplesPractice.Ch27.Payroll
+namespace Payroll
 {
-    public class ChangeDirectTransaction : ChangeMehtodTransaction
-    {
-        protected override PaymentMethod Method
-        {
-            get
-            {
-                return new DirectMethod();
-            }
-        }
+	public class ChangeDirectTransaction : ChangeMethodTransaction
+	{
+		public ChangeDirectTransaction(int empId, PayrollDatabase database)
+			: base(empId, database)
+		{
+		}
 
-        public ChangeDirectTransaction(int empId) : base(empId)
-        {
-        }
-    }
+		protected override PaymentMethod Method
+		{
+			get { return new DirectDepositMethod("Bank -1", "123"); }
+		}
+
+	}
 }

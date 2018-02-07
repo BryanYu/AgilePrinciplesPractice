@@ -1,39 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AgilePrinciplesPractice;
+using System;
 
 namespace Payroll
 {
     public abstract class AddEmployeeTransaction : Transaction
     {
-        private readonly int empId;
+        private readonly int empid;
         private readonly string name;
         private readonly string address;
 
-        public AddEmployeeTransaction(int empid, string name, string address)
+        public AddEmployeeTransaction(int empid,
+            string name, string address, PayrollDatabase database)
+            : base(database)
         {
-            this.empId = empid;
+            this.empid = empid;
             this.name = name;
             this.address = address;
         }
 
-        public void Execute()
+        public override void Execute()
         {
             PaymentClassification pc = MakeClassification();
             PaymentSchedule ps = MakeSchedule();
             PaymentMethod pm = new HoldMethod();
-            Employee e = new Employee(empId, name, address);
+
+            Employee e = new Employee(empid, name, address);
             e.Classification = pc;
             e.Schedule = ps;
             e.Method = pm;
-            PayrollDatabase.AddEmployee(empId, e);
+            database.AddEmployee(e);
         }
 
-        protected abstract PaymentClassification MakeClassification();
+        public override string ToString()
+        {
+            return String.Format("{0}  id:{1}   name:{2}   address:{3}", GetType().Name, empid, name, address);
+        }
 
-        protected abstract PaymentSchedule MakeSchedule();
+        protected abstract
+                            PaymentClassification MakeClassification();
+
+        protected abstract
+            PaymentSchedule MakeSchedule();
     }
 }

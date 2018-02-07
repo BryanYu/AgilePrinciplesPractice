@@ -1,8 +1,23 @@
-﻿using Payroll;
+using System;
 
-namespace AgilePrinciplesPractice.Ch27.Payroll
+namespace Payroll
 {
-    public class BiweeklySchedule : PaymentSchedule
-    {
-    }
+	public class BiWeeklySchedule : PaymentSchedule
+	{
+		public bool IsPayDate(DateTime payDate)
+		{
+			return payDate.DayOfWeek == DayOfWeek.Friday &&
+				payDate.Day % 2 == 0;
+		}
+
+		public DateTime GetPayPeriodStartDate(DateTime date)
+		{
+			return date.AddDays(-13);
+		}
+
+		public override string ToString()
+		{
+			return "bi-weekly";
+		}
+	}
 }
