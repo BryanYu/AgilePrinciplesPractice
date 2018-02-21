@@ -131,6 +131,7 @@
     <Compile Include="Ch27.Payroll\Transaction.cs" />
     <Compile Include="Ch27.Payroll\UnionAffiliation.cs" />
     <Compile Include="Ch27.Payroll\WeeklySchedule.cs" />
+    <Compile Include="Ch29\ShapeFactory.cs" />
     <Compile Include="Ch4\Ch4Sample.cs" />
     <Compile Include="Ch5\GeneratePrimes.cs" />
     <Compile Include="Ch6\Frame.cs" />
