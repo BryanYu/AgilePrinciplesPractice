@@ -138,6 +138,10 @@
     <Compile Include="Ch32\TimeSink.cs" />
     <Compile Include="Ch32\TimeSource.cs" />
     <Compile Include="Ch32\Subject.cs" />
+    <Compile Include="Ch34\DB.cs" />
+    <Compile Include="Ch34\Order.cs" />
+    <Compile Include="Ch34\OrderData.cs" />
+    <Compile Include="Ch34\ProductData.cs" />
     <Compile Include="Ch4\Ch4Sample.cs" />
     <Compile Include="Ch5\GeneratePrimes.cs" />
     <Compile Include="Ch6\Frame.cs" />
@@ -149,5 +153,6 @@
   <ItemGroup>
     <Compile Include="Ch24\UserDatabaseSource.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
