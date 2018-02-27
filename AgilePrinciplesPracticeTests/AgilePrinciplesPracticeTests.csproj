@@ -54,6 +54,9 @@
     <Compile Include="Ch25\TestNullObject.cs" />
     <Compile Include="Ch27.Payroll\PayrollTest.TestAddSalariedEmployee.cs" />
     <Compile Include="Ch32\ClockDriverTest.cs" />
+    <Compile Include="Ch34\DBTest.cs" />
+    <Compile Include="Ch34\OrderTests.cs" />
+    <Compile Include="Ch34\ProxyTest.cs" />
     <Compile Include="Ch4\Ch4SampleTest.cs" />
     <Compile Include="Ch4\WumpusGame.cs" />
     <Compile Include="Ch5\GeneratePrimesTest.cs" />
