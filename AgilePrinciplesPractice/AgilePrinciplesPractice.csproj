@@ -160,6 +160,8 @@
     <Compile Include="Ch35\Visitor\ErnieModem.cs" />
     <Compile Include="Ch35\Visitor\HayesModem.cs" />
     <Compile Include="Ch35\Visitor\Modem.cs" />
+    <Compile Include="Ch36\TurnSiteController.cs" />
+    <Compile Include="Ch36\TurnStile.cs" />
     <Compile Include="Ch4\Ch4Sample.cs" />
     <Compile Include="Ch5\GeneratePrimes.cs" />
     <Compile Include="Ch6\Frame.cs" />

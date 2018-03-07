@@ -57,6 +57,9 @@
     <Compile Include="Ch34\DBTest.cs" />
     <Compile Include="Ch34\OrderTests.cs" />
     <Compile Include="Ch34\ProxyTest.cs" />
+    <Compile Include="Ch35\ModemDecoratorTest.cs" />
+    <Compile Include="Ch35\ModemVisitorTest.cs" />
+    <Compile Include="Ch36\TurnstileTest.cs" />
     <Compile Include="Ch4\Ch4SampleTest.cs" />
     <Compile Include="Ch4\WumpusGame.cs" />
     <Compile Include="Ch5\GeneratePrimesTest.cs" />
